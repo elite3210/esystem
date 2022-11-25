@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-color: #202020;
+            color:lightcyan;
+        }
+        .contador{
+
+          font-size: 19px;
+        }
+        .barcode{
+            width: 100%;
+            background-color: rgb(97, 0, 189);
+
+        }
+
+        tbody{
+            
+            background-color: rgb(136, 85, 184)
+        }
+        table{
+            border-radius: 18px;
+            border-collapse: collapse;
+            
+        }
+        th{
+           
+            background-color: rgb(97, 0, 189);
+        }
+        td{
+            border: 1px solid rgb(0, 0, 0);
+        }
+    
+    </style>
+    <title>::Inventario::</title>
+</head>
+<body>
+
+    <form id="tarea-form" class="form1">
+     
+        <div class="cajita">
+          <label for="categoria" >Categoria:</label>
+          <input class="categoria" type="text" id='categoria' >
+
+          <label for="modelo">Modelo:</label>
+          <input type="text"  id="modelo" >
+
+          <label for="color">Color:</label>
+          <input type="text"  id="color" >
+
+          <label for="suela">Suela:</label>
+          <input type="text"  id="suela" >
+
+          <label for="talla">Talla:</label>
+          <input type="text"  id="talla" >
+
+          <label for="precio">Precio:</label>
+          <input type="number"  id="precio" >
+
+          <label for="descripcion">Descripcion:</label>
+          <input type="text" name="car" id="descripcion" >
+
+          <label for="almacen">Almacen:</label>
+          <input type="text"id="almacen" >
+        </div>
+
+        <div class="barcode">
+            <label for="codigo" >Código Barras:</label>
+            <input class="codigo"  type="text" id='codigo'>
+            
+            <label class="label_contador" id="label_counter">Pares:</label>
+            <label class="contador" id="counter">#</label>
+            <label class="label_acumulador" id="label_acumulador">Importe S/.</label>
+            <label class="acumulador" id="acumulador">S/</label>
+        </div>
+        <!--
+        <div id="container-btn" class="container-btn">
+          <button id="boton-task-save" class="boton"><i class="fa-solid fa-floppy-disk"></i></button> 
+          
+        </div>
+        -->     
+</form><br>
+
+<table>   
+  <tr><th>Codigo</th><th>Modelo</th><th>Color</th><th>Suela</th><th>Talla</th><th>Precio</th><th>Almacen</th><th>Eliminar</th></tr>
+  <tbody  class="caja" id="tareas-container">
+
+  </tbody>
+      
+</table>
+    <script type="module" src="./inventario.js"></script>
+</body>
+</html>

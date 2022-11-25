@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+            body {
+                margin: 0px;
+                display: flex;
+                flex-direction: column;
+               
+                width: 100vw;
+                height: 100vh;
+                min-height: 675px;
+                background-color: #F4F5FF;
+            }
+
+            .logo {
+              
+                width: 100%;
+                left: 0px;
+ 
+                
+                
+                font-weight: 400;
+                letter-spacing: 0px;
+                text-align: center;
+                vertical-align: 50%;
+                
+                color: #727586;
+                
+            }
+            a:hover {
+                cursor: pointer;
+                color: #673DE6;
+                text-decoration: underline;
+            }
+            h1 {
+                font-family: 'DM Sans', sans-serif;
+                font-size: 24px;
+                font-weight: 700;
+                letter-spacing: 0px;
+                text-align: center;
+                margin: 8px;
+            }
+
+            @media screen and (max-width: 580px) and (min-width: 0px) {
+                h1, p, .link-container {
+                    width: 80%;
+                }
+            }
+            @media screen and (min-width: 650px) and (min-height: 0px) and (max-height: 750px) {
+                .link-container {
+                    margin-top: 12px;
+                }
+                h1 {
+                    margin-top: 0px;
+                    margin-bottom: 0px;
+                }
+            }
+  </style>
+  <title>::Mirla::</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header>
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="http://www.mirla.pe">
+            <img src="./imagenes/logo_mirla.png" width="112" height="28">
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item" href="./index.html">Inicio</a>
+            <a class="navbar-item">Catálogo</a>
+      
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">Intranet</a>
+      
+              <div class="navbar-dropdown">
+                <a class="navbar-item" href="">Consultas</a>
+                <a class="navbar-item" href="">Ventas</a>
+                <a class="navbar-item" href="">Tranferenciaso</a>
+                <hr class="navbar-divider">
+                <a class="navbar-item" href="">Pedidos</a>
+                <a class="navbar-item" href="./inventario.html">Inventario</a>
+                <a class="navbar-item" href="./productos.html">Productos</a>
+              </div>
+            </div>
+          </div>
+      
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-primary"><strong>Sign up</strong></a>
+                <a class="button is-light">Log in</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="logo">
+    <img src="./imagenes/mirla_letra.png" width="250" height="85">
+  </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+// Get all "navbar-burger" elements
+const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+// Add a click event on each of them
+$navbarBurgers.forEach( el => {
+  el.addEventListener('click', () => {
+
+    // Get the target from the "data-target" attribute
+    const target = el.dataset.target;
+    const $target = document.getElementById(target);
+
+    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+    el.classList.toggle('is-active');
+    $target.classList.toggle('is-active');
+
+  });
+});
+
+});
+</script>
+
+</body>
+
+</html>

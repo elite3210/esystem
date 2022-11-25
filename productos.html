@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/434a77214b.js" crossorigin="anonymous"></script>
+    <title>Pruebas</title>
+    <style>
+        body{
+            background-color: #202020;
+            color:lightcyan;
+        }
+        .contador{
+            width: 100px;
+            height: 100px;
+          font-size: 36px;
+            background-color: cadetblue;
+            color: black;
+        }
+        tbody{
+            
+            background-color: rgb(136, 85, 184)
+        }
+        table{
+            border-radius: 18px;
+            border-collapse: collapse;
+            
+        }
+        th{
+           
+            background-color: rgb(97, 0, 189);
+        }
+        td{
+            border: 1px solid rgb(0, 0, 0);
+        }
+    </style>
+
+</head>
+<body>
+
+
+    <form id="tarea-form" class="form1">
+     
+              <div class="cajita">
+                <label for="categoria" >Categoria:</label>
+                <input class="categoria" type="text" id='categoria' >
+                
+                <label for="codigo" >Código :</label>
+                <input class="codigo"  type="text" id='codigo'>
+
+                <label for="modelo">Modelo:</label>
+                <input type="text"  id="modelo" >
+
+                <label for="color">Color:</label>
+                <input type="text"  id="color" >
+
+                <label for="suela">Suela:</label>
+                <input type="text"  id="suela" >
+
+                <label for="talla">Talla:</label>
+                <input type="text"  id="talla" >
+
+                <label for="precio">Precio:</label>
+                <input type="number"  id="precio" >
+
+                <label for="descripcion">Descripcion:</label>
+                <input type="text" name="car" id="descripcion" >
+
+                <label for="almacen">Almacen:</label>
+                <input type="text"id="almacen" >
+              </div>
+
+              <div id="container-btn" class="container-btn">
+                <button id="boton-task-save" class="boton"><i class="fa-solid fa-floppy-disk"></i></button> 
+                <label class="contador" id="counter">36</label>
+              </div>
+              
+    </form><br>
+   
+    <table>   
+        <tr><th>Categoria</th><th>Codigo</th><th>Modelo</th><th>Color</th><th>Suela</th><th>Talla</th><th>Precio</th><th>Descripcion</th><th>Almacen</th><th>Eliminar</th><th>Editar</th></tr>
+        <tbody  class="caja" id="tareas-container">
+      
+        </tbody>
+            
+    </table>
+
+
+    <div id="table"></div>
+    <script type="module" src="./productos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.umd.js"></script>
+</body>
+</html>
