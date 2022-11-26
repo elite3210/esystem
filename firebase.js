@@ -29,7 +29,7 @@ export const guardarProduct = (categoria,codigo,modelo,color,suela,talla,precio,
 
 /*creando la suscripcion que se deseara escuchar cuando los datos cambian
  crea un efecto inmediato sobre la tabla, como si se introduciera dorecto a la tabla cuando se guarda*/
-export const onGetTasks = (callback)=> onSnapshot(collection(db,'Micoleccion'),callback)
+
 export const onGetProduct = (callback)=> onSnapshot(collection(db,'Productos'),callback)
 
 /*metodo de firesote para eliminar un registro de db */
@@ -43,32 +43,121 @@ export const traeroneProduct = (id)=>getDoc(doc(db,'Productos',id))
 //actualiza una documento
 export const updateProduct = (id,newFields)=>updateDoc(doc(db,'Productos',id),newFields)
 
+export const traerConsulta = (barCode)=>getDocs(query(collection(db,'Productos'), where("codigo", "==", barCode)));
+
 
 // Create a reference to the cities collection
 //import { collection, query, where } from "firebase/firestore";
 
+/*
+
+export const traerConsulta3 = async (barCode)=>{
+
+let tbody=document.getElementById('container')
+var id = e.target.dataset.id
+let editStatus=false
 
 
-export const traerConsulta = async (barCode)=>{
-
-
-const objetos       =[]
 const querySnapshot = await getDocs(query(collection(db,'Productos'), where("codigo", "==", barCode)));
 let index           =0
+let html            =''
 
-console.log(querySnapshot)
+
+console.log('querySnapshot',querySnapshot)
+
 querySnapshot.forEach((doc) => {
-  objetos.push(doc.data());
+  let fila = doc.data();
+  html  +=`<tr><td>${fila.codigo}</td><td>${fila.modelo}</td><td>${fila.color}</td><td>${fila.suela}</td><td>${fila.talla}</td><td>${fila.precio}</td><td>${fila.almacen}</td><td><button class ='btn-edit' data-id='${doc.id}'>Editar</button></td><td><button class ='btn-delete' data-id='${doc.id}'>Eliminar</button></tr>`
 
- 
   index +=1; 
 })
-console.log(objetos)
+tbody.innerHTML=html
 
-new gridjs.Grid({ 
+const btnDelete = tbody.querySelectorAll('.btn-delete')
+            btnDelete.forEach(btn=>{
+                btn.addEventListener('click',(e)=>{deleteProduct(e.target.dataset.id)})
+            })
 
-  data:objetos
-  
-}).render(document.getElementById('table'));
+const btnEdit = tbody.querySelectorAll('.btn-edit')
+        
+btnEdit.forEach((btn)=>{
+    btn.addEventListener('click', async (e)=>{
+    
+        console.log('id del boton edit:',e.target.dataset.id);
+
+        const doc = await traeroneProduct(e.target.dataset.id);
+        const producto = doc.data()
+                console.log(producto)
+                tareaForm['categoria'].value=producto.categoria ;
+                tareaForm['codigo'].value=producto.codigo;
+                tareaForm['modelo'].value=producto.modelo;
+                tareaForm['color'].value=producto.color;
+                tareaForm['suela'].value=producto.suela;
+                tareaForm['talla'].value=producto.talla;
+                tareaForm['precio'].value=producto.precio;
+                tareaForm['almacen'].value=producto.almacen;
+                tareaForm['descripcion'].value=producto.descripcion
+
+                editStatus=true;
+                tareaForm['btn-buscar'].innerHTML='Actualizar'
+
+
+        })
+});
+
 }
 
+const tareaForm=document.getElementById('tarea-form')
+
+tareaForm.addEventListener('submit',(e)=>{
+    e.preventDefault()
+
+    const categoria         = tareaForm['categoria'];
+    const codigo            = tareaForm['codigo'];
+    const modelo            = tareaForm['modelo'];
+    const color             = tareaForm['color'];
+    const suela             = tareaForm['suela'];
+    const talla             = tareaForm['talla'];
+    const precio            = tareaForm['precio'];
+    const almacen           = tareaForm['almacen'];
+    const descripcion       = tareaForm['descripcion'];
+    let active              = true;
+   
+
+    updateProduct(id,{categoria:categoria.value,modelo:modelo.value,color:color.value,suela:suela.value,talla:talla.value,precio:precio.value,almacen:almacen.value,descripcion:descripcion.value})
+    editStatus=false
+
+    
+
+    tareaForm.reset()
+})
+
+
+*/
+
+
+
+
+export const traerConsulta2 = async (barCode)=>{
+
+
+  const objetos       =[]
+  const querySnapshot = await getDocs(query(collection(db,'Productos'), where("codigo", "==", barCode)));
+  let index           =0
+  
+  console.log(querySnapshot)
+  querySnapshot.forEach((doc) => {
+    objetos.push(doc.data());
+    objetos[index].id=doc.id
+  
+   
+    index +=1; 
+  })
+  console.log(objetos)
+  
+  new gridjs.Grid({ 
+  
+    data:objetos
+    
+  }).render(document.getElementById('table'));
+  }
