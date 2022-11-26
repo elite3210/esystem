@@ -70,14 +70,17 @@
 
           <label for="almacen">Almacen:</label>
           <input type="text"id="almacen" >
+
+          <label for="id">Id:</label>
+          <input type="text" id="id" >
         </div>
 
         <div class="barcode">
             <label for="codigo" >Código Barras:</label>
             <input class="codigo"  type="text" id='codigo'>
-            <button id="btn-consultar" class="boton"><i class="fa-solid fa-floppy-disk"></i></button> 
+            <button id="btn-buscar" class="boton">Buscar</button> 
             
-            <label class="label_contador" id="label_counter">Encontro!:</label>
+            <label class="label_contador" id="label_counter">mensaje!:</label>
             
         </div>
         <!--
@@ -88,11 +91,12 @@
         -->     
 </form><br>
 
-<table>   
-  <tr><th>Codigo</th><th>Modelo</th><th>Color</th><th>Suela</th><th>Talla</th><th>Precio</th><th>Almacen</th><th>Eliminar</th></tr>
-  <tbody  class="caja" id="tareas-container">
-
-  </tbody>
+<table>
+    <thead>
+        <tr><th>Codigo</th><th>Modelo</th><th>Color</th><th>Suela</th><th>Talla</th><th>Precio</th><th>Almacen</th><th>Eliminar</th><th>Editar</th></tr>
+    </thead>   
+  
+    <tbody  class="caja" id="container"></tbody>
       
 </table>
 <div id="table"></div>
